@@ -1,0 +1,19 @@
+{
+  "lumber": {"unit_price": 650, "unit": "m3", "description": "Structural wood for framing (per m3)"},
+  "foundation_concrete": {"unit_price": 180, "unit": "m3", "description": "Concrete for foundation and basement (per m3)"},
+  "insulation": {"unit_price": 2.5, "unit": "m2", "description": "Thermal insulation for walls and roof (per m2)"},
+  "drywall": {"unit_price": 3.2, "unit": "m2", "description": "Gypsum board for interior walls (per m2)"},
+  "roof_shingle": {"unit_price": 12, "unit": "m2", "description": "Asphalt shingles for sloped roof (per m2)"},
+  "window": {"unit_price": 250, "unit": "m2", "description": "Double-glazed windows (per m2)"},
+  "interior_door": {"unit_price": 180, "unit": "count", "description": "Interior doors (per door)"},
+  "paint": {"unit_price": 4, "unit": "m2", "description": "Paint for interior walls and ceilings (per m2)"},
+  "flooring": {"unit_price": 30, "unit": "m2", "description": "Laminate or hardwood flooring (per m2)"},
+  "exterior_siding": {"unit_price": 22, "unit": "m2", "description": "Vinyl or wood siding for exterior walls (per m2)"},
+  "electrical_wiring": {"unit_price": 12, "unit": "kg", "description": "Copper wiring for electrical system (per kg)"},
+  "plumbing_pipe": {"unit_price": 6, "unit": "m", "description": "PEX or copper pipe for plumbing (per meter)"},
+  "hvac_duct": {"unit_price": 18, "unit": "m", "description": "Ductwork for heating/cooling (per meter)"},
+  "toilet": {"unit_price": 350, "unit": "count", "description": "Toilets (per unit)"},
+  "kitchen_cabinet": {"unit_price": 400, "unit": "m2", "description": "Kitchen cabinets (per m2)"},
+  "garage_door": {"unit_price": 1200, "unit": "count", "description": "Garage doors (per unit)"},
+  "smoke_detector": {"unit_price": 40, "unit": "count", "description": "Smoke detectors (per unit)"}
+} 

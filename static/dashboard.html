@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Construction Cost Estimation System</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-building"></i>
+                <span>BuildEstimate</span>
+            </div>
+            <div class="nav-menu">
+                <a href="/index.html" class="nav-link">Home</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#reports" class="nav-link">Reports</a>
+                <a href="#profile" class="nav-link">Profile</a>
+            </div>
+            <div class="nav-auth">
+                <span class="user-welcome" id="userWelcome">Hello User</span>
+                <button class="btn-secondary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-menu">
+                <div class="menu-item active" data-section="overview">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Overview</span>
+                </div>
+                <div class="menu-item" data-section="new-project">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>New Project</span>
+                </div>
+                <div class="menu-item" data-section="projects">
+                    <i class="fas fa-folder-open"></i>
+                    <span>My Projects</span>
+                </div>
+                <div class="menu-item" data-section="reports">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Reports</span>
+                </div>
+                <div class="menu-item" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Section -->
+            <section id="overview" class="content-section active">
+                <div class="section-header">
+                    <h1>Overview</h1>
+                    <p>Summary of your activities</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalProjects">0</h3>
+                            <p>Total Projects</p>
+                        </div>
+                    </div>
+                    <!-- Removed unused Active Projects and Completed Projects cards -->
+                    <!-- Total Estimates card removed as per requirement -->
+                </div>
+
+                <div class="recent-projects">
+                    <h2>Recent Projects</h2>
+                    <div class="projects-list" id="recentProjectsList">
+                        <div class="empty-state">
+                            <i class="fas fa-folder-open"></i>
+                            <p>You haven't created any projects yet</p>
+                            <button class="btn-primary" onclick="showSection('new-project')">Create New Project</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Project Section -->
+            <section id="new-project" class="content-section">
+                <div class="section-header">
+                    <h1>New Project</h1>
+                    <p>Estimate cost for new construction project</p>
+                </div>
+
+                <div class="project-form-container">
+                    <form id="newProjectForm" class="project-form">
+                        <div class="form-step active" id="step1">
+                            <h3>General Project Information</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectName">Project Name:</label>
+                                    <input type="text" id="projectName" name="projectName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectType">Project Type:</label>
+                                    <select id="projectType" name="projectType" required>
+                                        <option value="">Select Type</option>
+                                        <option value="residential">Residential</option>
+                                        <option value="commercial">Commercial</option>
+                                        <option value="industrial">Industrial</option>
+                                        <option value="infrastructure">Infrastructure</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectLocation">Project Location:</label>
+                                    <input type="text" id="projectLocation" name="projectLocation" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="areaUnit">Area Unit:</label>
+                                    <select id="areaUnit" name="areaUnit" required onchange="updateAreaLabel()">
+                                        <option value="m2">Square Meters (m²)</option>
+                                        <option value="sqft">Square Feet (sqft)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectArea" id="areaLabel">Area (square meters):</label>
+                                    <input type="number" id="projectArea" name="projectArea" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="buildingType">Building Type:</label>
+                                    <select id="buildingType" name="buildingType" required>
+                                        <option value="">Select Building Type</option>
+                                        <option value="wood_frame_house">Wood Frame House</option>
+                                        <option value="concrete_house">Concrete House</option>
+                                        <option value="steel_frame_house">Steel Frame House</option>
+                                        <option value="mixed_structure">Mixed Structure</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="projectDescription">Project Description:</label>
+                                <textarea id="projectDescription" name="projectDescription" rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-primary" onclick="nextStep()">Next Step</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" id="step2">
+                            <h3>Building Specifications</h3>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="floors">Number of Floors:</label>
+                                    <input type="number" id="floors" name="floors" min="1" max="50" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="rooms">Number of Rooms:</label>
+                                    <input type="number" id="rooms" name="rooms" min="1" max="100">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="bathrooms">Number of Bathrooms:</label>
+                                    <input type="number" id="bathrooms" name="bathrooms" min="1" max="20" value="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="buildingHeight">Building Height (meters):</label>
+                                    <input type="number" id="buildingHeight" name="buildingHeight" min="2" max="200" step="0.1">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                </div>
+                                <div class="form-group">
+                                    <label for="foundationType">Foundation Type:</label>
+                                    <select id="foundationType" name="foundationType">
+                                        <option value="shallow">Shallow</option>
+                                        <option value="deep">Deep</option>
+                                        <option value="pile">Pile</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="structureType">Structure Type:</label>
+                                    <select id="structureType" name="structureType">
+                                        <option value="concrete">Reinforced Concrete</option>
+                                        <option value="steel">Steel</option>
+                                        <option value="wood">Wood</option>
+                                        <option value="mixed">Mixed</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="roofType">Roof Type:</label>
+                                    <select id="roofType" name="roofType">
+                                        <option value="flat">Flat</option>
+                                        <option value="sloped">Sloped</option>
+                                        <option value="dome">Dome</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep()">Previous Step</button>
+                                <button type="button" class="btn-primary" onclick="nextStep()">Next Step</button>
+                            </div>
+                        </div>
+
+                        <div class="form-step" id="step3">
+                            <h3>Materials and Equipment</h3>
+                            <div class="materials-section">
+                                <div class="form-group">
+                                    <label for="qualityLevel">Quality Level:</label>
+                                    <select id="qualityLevel" name="qualityLevel">
+                                        <option value="basic">Basic</option>
+                                        <option value="standard">Standard</option>
+                                        <option value="premium">Premium</option>
+                                        <option value="luxury">Luxury</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="finishingType">Facade Type:</label>
+                                    <select id="finishingType" name="finishingType">
+                                        <option value="brick">Brick</option>
+                                        <option value="stone">Stone</option>
+                                        <option value="composite">Composite</option>
+                                        <option value="glass">Glass</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="checkbox-group">
+                                <h4>Additional Features:</h4>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="features" value="elevator">
+                                    <span class="checkmark"></span>
+                                    Elevator
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="features" value="parking">
+                                    <span class="checkmark"></span>
+                                    Parking
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="features" value="garden">
+                                    <span class="checkmark"></span>
+                                    Green Space
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="features" value="pool">
+                                    <span class="checkmark"></span>
+                                    Pool
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="features" value="hvac">
+                                    <span class="checkmark"></span>
+                                    HVAC System
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="features" value="security">
+                                    <span class="checkmark"></span>
+                                    Security System
+                                </label>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="btn-secondary" onclick="prevStep()">Previous Step</button>
+                                <button type="submit" class="btn-primary">Calculate Estimate</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Progress Bar -->
+                    <div class="progress-bar">
+                        <div class="progress-step active" data-step="1">
+                            <div class="step-number">1</div>
+                            <div class="step-label">General Information</div>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <div class="step-number">2</div>
+                            <div class="step-label">Building Specifications</div>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <div class="step-number">3</div>
+                            <div class="step-label">Materials and Equipment</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="content-section">
+                <div class="section-header">
+                    <h1>My Projects</h1>
+                    <button class="btn-primary" onclick="showSection('new-project')">New Project</button>
+                </div>
+                
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h1>Reports</h1>
+                    <p>View and download estimation reports</p>
+                </div>
+                
+                <div class="reports-list" id="reportsList">
+                    <!-- Reports will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Profile Section -->
+            <section id="profile" class="content-section">
+                <div class="section-header">
+                    <h1>User Profile</h1>
+                    <p>Manage account information</p>
+                </div>
+                
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3 id="profileUsername">Username</h3>
+                            <p id="profileEmail">Email</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-actions">
+                        <button class="btn-secondary">Edit Profile</button>
+                        <button class="btn-secondary">Change Password</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Project View Modal -->
+    <div id="projectViewModal" class="modal">
+        <div class="modal-content project-view-modal">
+            <span class="close" onclick="closeModal('projectViewModal')">&times;</span>
+            <h2>Project Details</h2>
+            <div id="projectViewContent">
+                <!-- Project details will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Estimation Result Modal -->
+    <div id="estimationModal" class="modal">
+        <div class="modal-content estimation-modal">
+            <span class="close" onclick="closeModal('estimationModal')">&times;</span>
+            <h2>Cost Estimation Result</h2>
+            <div id="estimationResult">
+                <!-- Estimation results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Report Modal -->
+    <div id="reportModal" class="modal">
+        <div class="modal-content project-view-modal">
+            <span class="close" onclick="closeModal('reportModal')">&times;</span>
+            <h2>Comprehensive Report</h2>
+            <div id="reportContent">
+                <!-- Report content will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "lumber": {
+    "unit_price": 650,
+    "unit": "m3",
+    "description": "Structural wood for framing (per m3)"
+  },
+  "foundation_concrete": {
+    "unit_price": 180,
+    "unit": "m3",
+    "description": "Concrete for foundation (per m3)"
+  },
+  "insulation": {
+    "unit_price": 2.5,
+    "unit": "m2",
+    "description": "Thermal insulation for walls and roof (per m2)"
+  },
+  "drywall": {
+    "unit_price": 4,
+    "unit": "m2",
+    "description": "Gypsum board for interior walls (per m2)"
+  },
+  "roof_shingle": {
+    "unit_price": 12,
+    "unit": "m2",
+    "description": "Asphalt shingle for roofing (per m2)"
+  },
+  "window": {
+    "unit_price": 250,
+    "unit": "m2",
+    "description": "Double-glazed windows (per m2)"
+  },
+  "interior_door": {
+    "unit_price": 180,
+    "unit": "count",
+    "description": "Interior wooden door (per unit)"
+  },
+  "paint": {
+    "unit_price": 3,
+    "unit": "m2",
+    "description": "Wall paint (per m2)"
+  },
+  "structural_concrete": {
+    "unit_price": 220,
+    "unit": "m3",
+    "description": "Reinforced structural concrete (per m3)"
+  },
+  "rebar": {
+    "unit_price": 2.2,
+    "unit": "kg",
+    "description": "Reinforcing steel rebar (per kg)"
+  },
+  "structural_steel": {
+    "unit_price": 5.2,
+    "unit": "kg",
+    "description": "Structural steel (per kg)"
+  },
+  "roof_membrane": {
+    "unit_price": 28,
+    "unit": "m2",
+    "description": "Single-ply roof membrane (per m2)"
+  },
+  "roof_metal_panel": {
+    "unit_price": 65,
+    "unit": "m2",
+    "description": "Metal roofing panel (per m2)"
+  }
+}

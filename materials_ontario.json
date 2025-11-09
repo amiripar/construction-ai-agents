@@ -1,0 +1,21 @@
+{
+  "wood_frame_house": {
+    "lumber": {"coefficient": 0.08, "unit": "m3", "description": "Structural wood for framing"},
+    "foundation_concrete": {"coefficient": 0.12, "unit": "m3", "description": "Concrete for foundation and basement"},
+    "insulation": {"coefficient": 1.2, "unit": "m2", "description": "Thermal insulation for walls and roof"},
+    "drywall": {"coefficient": 1.1, "unit": "m2", "description": "Gypsum board for interior walls"},
+    "roof_shingle": {"coefficient": 1.05, "unit": "m2", "description": "Asphalt shingles for sloped roof"},
+    "window": {"coefficient": 0.15, "unit": "m2", "description": "Double-glazed windows"},
+    "interior_door": {"coefficient": 0.03, "unit": "count", "description": "Interior doors"},
+    "paint": {"coefficient": 1.5, "unit": "m2", "description": "Paint for interior walls and ceilings"},
+    "flooring": {"coefficient": 1.0, "unit": "m2", "description": "Laminate or hardwood flooring"},
+    "exterior_siding": {"coefficient": 1.1, "unit": "m2", "description": "Vinyl or wood siding for exterior walls"},
+    "electrical_wiring": {"coefficient": 0.18, "unit": "kg", "description": "Copper wiring for electrical system"},
+    "plumbing_pipe": {"coefficient": 0.12, "unit": "m", "description": "PEX or copper pipe for plumbing"},
+    "hvac_duct": {"coefficient": 0.08, "unit": "m", "description": "Ductwork for heating/cooling"},
+    "toilet": {"coefficient": 0.012, "unit": "count", "description": "Toilets (per m2)"},
+    "kitchen_cabinet": {"coefficient": 0.02, "unit": "m2", "description": "Kitchen cabinets (per m2)"},
+    "garage_door": {"coefficient": 0.005, "unit": "count", "description": "Garage doors (per m2)"},
+    "smoke_detector": {"coefficient": 0.01, "unit": "count", "description": "Smoke detectors (per m2)"}
+  }
+} 

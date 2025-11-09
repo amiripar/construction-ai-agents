@@ -1,0 +1,46 @@
+{
+  "wood_frame_house": {
+    "lumber": { "coefficient": 0.08, "unit": "m3", "description": "Framing lumber per m2" },
+    "foundation_concrete": { "coefficient": 0.12, "unit": "m3", "description": "Concrete per m2" },
+    "insulation": { "coefficient": 1.2, "unit": "m2", "description": "Insulation per m2" },
+    "drywall": { "coefficient": 1.1, "unit": "m2", "description": "Drywall per m2" },
+    "roof_shingle": { "coefficient": 1.05, "unit": "m2", "description": "Roof shingle per m2" },
+    "window": { "coefficient": 0.15, "unit": "m2", "description": "Window area per m2" },
+    "interior_door": { "coefficient": 0.03, "unit": "count", "description": "Interior doors per m2" },
+    "paint": { "coefficient": 1.3, "unit": "m2", "description": "Paint per m2" }
+  },
+  "concrete_house": {
+    "foundation_concrete": { "coefficient": 0.12, "unit": "m3", "description": "Concrete per m2" },
+    "structural_concrete": { "coefficient": 0.25, "unit": "m3", "description": "Reinforced structural concrete per m2" },
+    "rebar": { "coefficient": 25, "unit": "kg", "description": "Reinforcing steel per m2" },
+    "insulation": { "coefficient": 1.0, "unit": "m2", "description": "Insulation per m2" },
+    "drywall": { "coefficient": 1.0, "unit": "m2", "description": "Drywall per m2" },
+    "roof_membrane": { "coefficient": 1.10, "unit": "m2", "description": "Single-ply roof membrane per m2" },
+    "window": { "coefficient": 0.15, "unit": "m2", "description": "Window area per m2" },
+    "interior_door": { "coefficient": 0.03, "unit": "count", "description": "Interior doors per m2" },
+    "paint": { "coefficient": 1.2, "unit": "m2", "description": "Paint per m2" }
+  },
+  "steel_frame_house": {
+    "foundation_concrete": { "coefficient": 0.10, "unit": "m3", "description": "Concrete per m2" },
+    "structural_steel": { "coefficient": 45, "unit": "kg", "description": "Structural steel per m2" },
+    "lumber": { "coefficient": 0.02, "unit": "m3", "description": "Secondary lumber per m2" },
+    "insulation": { "coefficient": 1.3, "unit": "m2", "description": "Insulation per m2" },
+    "drywall": { "coefficient": 1.2, "unit": "m2", "description": "Drywall per m2" },
+    "roof_metal_panel": { "coefficient": 1.05, "unit": "m2", "description": "Metal roof panels per m2" },
+    "window": { "coefficient": 0.15, "unit": "m2", "description": "Window area per m2" },
+    "interior_door": { "coefficient": 0.03, "unit": "count", "description": "Interior doors per m2" },
+    "paint": { "coefficient": 1.3, "unit": "m2", "description": "Paint per m2" }
+  },
+  "mixed_structure": {
+    "foundation_concrete": { "coefficient": 0.12, "unit": "m3", "description": "Concrete per m2" },
+    "structural_concrete": { "coefficient": 0.12, "unit": "m3", "description": "Structural concrete per m2" },
+    "structural_steel": { "coefficient": 25, "unit": "kg", "description": "Structural steel per m2" },
+    "lumber": { "coefficient": 0.05, "unit": "m3", "description": "Framing lumber per m2" },
+    "insulation": { "coefficient": 1.25, "unit": "m2", "description": "Insulation per m2" },
+    "drywall": { "coefficient": 1.2, "unit": "m2", "description": "Drywall per m2" },
+    "roof_shingle": { "coefficient": 1.05, "unit": "m2", "description": "Roof shingle per m2" },
+    "window": { "coefficient": 0.15, "unit": "m2", "description": "Window area per m2" },
+    "interior_door": { "coefficient": 0.03, "unit": "count", "description": "Interior doors per m2" },
+    "paint": { "coefficient": 1.3, "unit": "m2", "description": "Paint per m2" }
+  }
+}
